@@ -16,4 +16,10 @@ object FizzBuzz {
     val aggregated = converted.reduceLeft((a, b) => a.append(b))
     aggregated.output
   }
+
+  def StepThreeConvertToFizzBuzz(numbers: Seq[Int]):String = {
+    val converted = numbers.map(runStepTwoConversionChain)
+    val aggregated = converted.reduceLeft((a, b) => a.append(b))
+    aggregated.outputWithStats
+  }
 }
