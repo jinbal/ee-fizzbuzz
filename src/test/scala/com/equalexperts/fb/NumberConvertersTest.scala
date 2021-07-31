@@ -104,7 +104,7 @@ class NumberConvertersTest extends AnyFunSuite with Matchers {
     val fizzBuzzNumbers = Seq(3, 5, 15)
     val expectedResult = Seq("fizz", "buzz", "fizzbuzz")
     // When
-    val result = fizzBuzzNumbers.map(runConversionChain)
+    val result = fizzBuzzNumbers.map(runStepOneConversionChain)
 
     // Then
     Inspectors.forAll(result.zip(expectedResult)) { case (res, str) =>

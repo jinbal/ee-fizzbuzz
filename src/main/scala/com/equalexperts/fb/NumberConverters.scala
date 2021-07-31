@@ -1,7 +1,7 @@
 package com.equalexperts.fb
 
 object NumberConverters {
-  lazy val converterChain = Seq(FizzConverter, BuzzConverter, FizzBuzzConverter)
+  lazy val stepOneConverterChain = Seq(FizzConverter, BuzzConverter, FizzBuzzConverter)
 
   case class ConversionResult(output: String = "", converted: Boolean = false) {
     def append(conversionResult: ConversionResult): ConversionResult = {
@@ -35,8 +35,8 @@ object NumberConverters {
     }
   }
 
-  def runConversionChain(numToConvert: Int): ConversionResult = {
-    converterChain.foldLeft(DefaultConversionResult(numToConvert)) { case (res, converter) =>
+  def runStepOneConversionChain(numToConvert: Int): ConversionResult = {
+    stepOneConverterChain.foldLeft(DefaultConversionResult(numToConvert)) { case (res, converter) =>
       converter.convert(res, numToConvert)
     }
   }
