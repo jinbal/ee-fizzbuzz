@@ -1,8 +1,9 @@
 package com.equalexperts.fb
 
-import com.equalexperts.fb.NumberConverters.runStepOneConversionChain
+import com.equalexperts.fb.NumberConverters._
 
 object FizzBuzz {
+
 
   def StepOneConvertToFizzBuzz(numbers: Seq[Int]): String = {
     val converted = numbers.map(runStepOneConversionChain)
@@ -10,4 +11,9 @@ object FizzBuzz {
     aggregated.output
   }
 
+  def StepTwoConvertToFizzBuzz(numbers: Seq[Int]):String = {
+    val converted = numbers.map(runStepTwoConversionChain)
+    val aggregated = converted.reduceLeft((a, b) => a.append(b))
+    aggregated.output
+  }
 }
