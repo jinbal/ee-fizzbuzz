@@ -3,10 +3,14 @@ package com.equalexperts.fb
 object NumberConverters {
   lazy val converterChain = Seq(FizzConverter, BuzzConverter, FizzBuzzConverter)
 
-  case class ConversionResult(output: String = "", converted: Boolean = false)
+  case class ConversionResult(output: String = "", converted: Boolean = false) {
+    def append(conversionResult: ConversionResult): ConversionResult = {
+      ConversionResult(s"$output ${conversionResult.output}")
+    }
+  }
 
   object DefaultConversionResult {
-    def apply(num: Int) = ConversionResult(num.toString)
+    def apply(num: Int): ConversionResult = ConversionResult(num.toString)
   }
 
   sealed trait NumberConverter {
